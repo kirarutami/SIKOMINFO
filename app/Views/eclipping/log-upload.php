@@ -10,7 +10,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Tanggal</th> pakai tabel created_by aja
+                        <th scope="col">Tanggal</th>
                         <th scope="col">Nama File</th>
                         <th scope="col">Aksi</th>
                     </tr>
