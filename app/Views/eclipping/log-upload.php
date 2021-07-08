@@ -1,21 +1,35 @@
 <?= $this->extend("layout/template"); ?>
 <?= $this->section('content'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-2">Log Upload e-Clipping</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <p>Haloooo ini sebagai log upload</p>
-
-</body>
-
-</html>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tanggal</th> pakai tabel created_by aja
+                        <th scope="col">Nama File</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?= $i = 1; ?>
+                    <?php foreach ($clipping as $c) : ?>
+                        <tr>
+                            <th scope="row"><?= $i++; ?></th>
+                            <td><?= $c['slug']; ?></td>
+                            <td><?= $c['judul']; ?></td>
+                            <td>
+                                <a href="" class="btn btn-success"> Detail</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <?= $this->endSection(); ?>
