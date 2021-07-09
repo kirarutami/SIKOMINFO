@@ -14,10 +14,10 @@ class Clipping extends BaseController
     public function index()
 
     {
-        $clipping = $this->clippingModel->findAll();
+        // $clipping = $this->clippingModel->findAll();
         $data = [
             'title' => 'Daftar e-Clipping',
-            'clipping' => $clipping
+            'clipping' => $this->clippingModel->getClipping()
         ];
 
 
@@ -33,5 +33,17 @@ class Clipping extends BaseController
         ];
 
         return view('eclipping/form-clipping', $data);
+    }
+
+    public function detail($slug)
+
+    {
+        $data = [
+            'title' => 'Detail e-Clipping',
+            'clipping' => $this->clippingModel->getClipping($slug)
+
+        ];
+
+        return view('eclipping/detail', $data);
     }
 }
