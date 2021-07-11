@@ -44,6 +44,24 @@ class Clipping extends BaseController
 
         ];
 
+        if (empty($data['clipping'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('e-Clipping Tanggal ' . $slug . ' tidak ditemukan.');
+        }
+
         return view('eclipping/detail', $data);
+    }
+
+    public function save()
+    {
+        $slug = url_title($this->request->getVar('judul'), '-', true);
+        $this->clippingModel->save([
+            'judul' => $this->request->getVar('judul'),
+            'slug' => $slug,
+            'file' => $this->request->getVar('file')
+        ]);
+
+        session()->setFlashdata('pesan', 'e-Clipping berhasil di Unggah. Tunggu kabar dari verifikator ye bro');
+
+        return redirect()->to('/clipping/index');
     }
 }

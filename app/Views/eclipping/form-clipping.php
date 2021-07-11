@@ -1,21 +1,29 @@
 <?= $this->extend("layout/template"); ?>
 <?= $this->section('content'); ?>
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="my-3">Form Tambah e-Clipping</h2>
+            <form action="/clipping/save" method="post">
+                <?= csrf_field(); ?>
+                <div class="row mb-3">
+                    <label for="judul" class="col-sm-2 col-form-label">Judul</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="judul" name="judul" autofocus>
+                    </div>
+                </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <p>Haloooo ini buat ngisi form</p>
-
-</body>
-
-</html>
+                <!-- //ini row buat upload nanti -->
+                <div class="row mb-3">
+                    <label for="file" class="col-sm-2 col-form-label">Upload File</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="file" name="file">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?= $this->endSection(); ?>

@@ -5,7 +5,12 @@
     <div class="row">
         <div class="col">
             <h1 class="mt-2">Log Upload e-Clipping</h1>
-
+            <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                </div>
+            <?php endif ?>
+            <a href="/clipping/form-clipping" class="btn btn-primary mb-3">Masukkan e-Clipping</a>
             <table class="table">
                 <thead>
                     <tr>

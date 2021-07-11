@@ -7,7 +7,8 @@
             <div class="card" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"><?= $clipping['judul']; ?></h5>
+                    <h5 class="card-title"><?= isset($clipping['judul']); ?></h5>
+                    <!-- i'm adding isset that i don't even understand what was that -->
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
 
