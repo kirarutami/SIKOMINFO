@@ -78,4 +78,9 @@ class Clipping extends BaseController
 
         return redirect()->to('/clipping/index');
     }
+    public function hapus($id)
+    {
+        $this->clippingModel->delete($id);
+        return redirect()->to('/clipping/index');
+    }
 }

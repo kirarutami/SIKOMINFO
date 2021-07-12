@@ -17,6 +17,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Nama File</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -27,9 +28,17 @@
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $c['slug']; ?></td>
                             <td><?= $c['judul']; ?></td>
+                            <td><?= $c['status']; ?></td>
                             <td>
-                                <a href="/clipping/<?= $c['slug']; ?>" class="btn btn-success"> Detail</a>
+                                <form action="/clipping/hapus/<?= $c['id']; ?>" method="post" class="d-inline">
+                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('yakin lu lur?');">Hapus</button>
+                                </form>
                             </td>
+                            <!-- <td>
+                                <a href="/clipping/<?= $c['slug']; ?>" class="btn btn-success"> Detail</a>
+                            </td> -->
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -10,7 +10,7 @@
                     <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control  <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>
-" id="judul" name="judul" autofocus>
+" id="judul" name="judul" autofocus value="<?= old('judul'); ?>">
                         <div class="invalid-feedback">
                             <?= $validation->getError('judul'); ?>
                         </div>
@@ -21,7 +21,7 @@
                 <div class="row mb-3">
                     <label for="file" class="col-sm-2 col-form-label">Upload File</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="file" name="file">
+                        <input type="text" class="form-control" id="file" name="file" value="<?= old('file'); ?>">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Kirim</button>
