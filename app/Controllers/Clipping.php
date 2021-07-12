@@ -28,8 +28,10 @@ class Clipping extends BaseController
     public function form()
 
     {
+        // session();
         $data = [
-            'title' => 'Form e-Clipping'
+            'title' => 'Form e-Clipping',
+            'validation' => \Config\Services::validation()
         ];
 
         return view('eclipping/form-clipping', $data);
@@ -53,6 +55,18 @@ class Clipping extends BaseController
 
     public function save()
     {
+        if (!$this->validate([
+            'judul' => [
+                'rules' => 'required|is_unique[log_upload.judul]', //[nama_tabel.kolomnya]
+                'errors' => [
+                    'required' => '{field} klipingnya isi dong!',
+                    'is_unique' => '{field} klipingnya udah ada, ganti yang laen!'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/clipping/form-clipping')->withInput()->with('validation', $validation);
+        }
         $slug = url_title($this->request->getVar('judul'), '-', true);
         $this->clippingModel->save([
             'judul' => $this->request->getVar('judul'),

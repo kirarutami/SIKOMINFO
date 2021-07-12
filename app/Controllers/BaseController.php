@@ -57,5 +57,6 @@ class BaseController extends Controller
 
 		//jika mau dipanggil di seluruh controller
 		//$this->clippingModel = new \App\Models\ClippingModel();
+		session();
 	}
 }
