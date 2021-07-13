@@ -62,10 +62,17 @@ class Clipping extends BaseController
                     'required' => '{field} klipingnya isi dong!',
                     'is_unique' => '{field} klipingnya udah ada, ganti yang laen!'
                 ]
+            ],
+            'file' => [
+                'rules' => 'uploaded[sampul]',
+                'errors' => [
+                    'uploaded' => '{field} klipingnya isi dong!',
+                ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/clipping/form-clipping')->withInput()->with('validation', $validation);
+            // $validation = \Config\Services::validation();
+            // return redirect()->to('/clipping/form-clipping')->withInput()->with('validation', $validation);
+            return redirect()->to('/clipping/form-clipping')->withInput();
         }
         $slug = url_title($this->request->getVar('judul'), '-', true);
         $this->clippingModel->save([
