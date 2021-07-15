@@ -63,12 +63,12 @@ class Clipping extends BaseController
                     'is_unique' => '{field} klipingnya udah ada, ganti yang laen!'
                 ]
             ],
-            'file' => [
-                'rules' => 'uploaded[sampul]',
-                'errors' => [
-                    'uploaded' => '{field} klipingnya isi dong!',
-                ]
-            ]
+            // 'file' => [
+            //     'rules' => 'uploaded[file]',
+            //     'errors' => [
+            //         'uploaded' => '{field} klipingnya isi dong!',
+            //     ]
+            // ],
         ])) {
             // $validation = \Config\Services::validation();
             // return redirect()->to('/clipping/form-clipping')->withInput()->with('validation', $validation);
@@ -78,7 +78,9 @@ class Clipping extends BaseController
         $this->clippingModel->save([
             'judul' => $this->request->getVar('judul'),
             'slug' => $slug,
-            'file' => $this->request->getVar('file')
+            'file' => $this->request->getVar('file'),
+            'status' => $this->request->getVar('status'),
+
         ]);
 
         session()->setFlashdata('pesan', 'e-Clipping berhasil di Unggah. Tunggu kabar dari verifikator ye bro');

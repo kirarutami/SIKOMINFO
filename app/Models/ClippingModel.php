@@ -8,7 +8,7 @@ class ClippingModel extends Model
 {
     protected $table = 'log_upload';
     protected $useTimestamps = true;
-    protected $allowedFields = ['judul', 'slug', 'file', 'uploaded_by'];
+    protected $allowedFields = ['judul', 'slug', 'file', 'status', 'uploaded_by'];
 
     public function getClipping($slug = false)
     {

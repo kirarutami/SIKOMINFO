@@ -36,9 +36,6 @@
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('yakin lu lur?');">Hapus</button>
                                 </form>
                             </td>
-                            <!-- <td>
-                                <a href="/clipping/<?= $c['slug']; ?>" class="btn btn-success"> Detail</a>
-                            </td> -->
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
