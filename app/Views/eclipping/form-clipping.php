@@ -17,7 +17,7 @@
                 </div>
 
                 <!-- //ini row buat upload nanti -->
-                <!-- <div class="row mb-3">
+                <div class="row mb-3">
                     <label for="file" class="col-sm-2 col-form-label">Upload File</label>
                     <div class="col-sm-10">
                         <div class="input-group">
@@ -26,15 +26,6 @@
                             <div class="invalid-feedback">
                                 <?= $validation->getError('file'); ?>
                             </div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="row mb-3">
-                    <label for="judul" class="col-sm-2 col-form-label">File</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control  <?= ($validation->hasError('file')) ? 'is-invalid' : ''; ?>" id="file" name="file" autofocus value="<?= old('file'); ?>">
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('file'); ?>
                         </div>
                     </div>
                 </div>

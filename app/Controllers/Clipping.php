@@ -63,22 +63,31 @@ class Clipping extends BaseController
                     'is_unique' => '{field} klipingnya udah ada, ganti yang laen!'
                 ]
             ],
-            // 'file' => [
-            //     'rules' => 'uploaded[file]',
-            //     'errors' => [
-            //         'uploaded' => '{field} klipingnya isi dong!',
-            //     ]
-            // ],
+            'file' => [
+                'rules' => 'uploaded[file]|max_size[file,25600]|mime_in[file,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih e-Clipping terlebih dahulu',
+                    'max_size' => 'Ukuran file terlalu besar',
+                    'mime_in' => 'Format file salah.'
+                ]
+            ],
         ])) {
-            // $validation = \Config\Services::validation();
-            // return redirect()->to('/clipping/form-clipping')->withInput()->with('validation', $validation);
             return redirect()->to('/clipping/form-clipping')->withInput();
         }
-        $slug = url_title($this->request->getVar('judul'), '-', true);
+        //ambil gambar
+        $fileClipping = $this->request->getFile('file');
+        //pindah file ke /public/pdf/
+        $fileClipping->move('pdf');
+        //ambil nama file
+        $namaClipping = $fileClipping->getName();
+
+
+
+        $slug = date("d-m-Y");
         $this->clippingModel->save([
             'judul' => $this->request->getVar('judul'),
             'slug' => $slug,
-            'file' => $this->request->getVar('file'),
+            'file' => $namaClipping,
             'status' => $this->request->getVar('status'),
 
         ]);
@@ -89,6 +98,11 @@ class Clipping extends BaseController
     }
     public function hapus($id)
     {
+
+        //first thing first cari dulu gambarnya
+        $clipping = $this->clippingModel->find($id);
+        //hapus file
+        unlink('pdf/' . $clipping['file']);
         $this->clippingModel->delete($id);
         return redirect()->to('/clipping/index');
     }

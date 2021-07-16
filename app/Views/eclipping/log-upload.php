@@ -27,7 +27,7 @@
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $c['slug']; ?></td>
-                            <td><?= $c['judul']; ?></td>
+                            <td><?= $c['file']; ?></td>
                             <td><?= $c['status']; ?></td>
                             <td>
                                 <form action="/clipping/hapus/<?= $c['id']; ?>" method="post" class="d-inline">
