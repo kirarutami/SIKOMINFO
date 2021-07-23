@@ -30,6 +30,11 @@
                             <td><?= $c['file']; ?></td>
                             <td><?= $c['status']; ?></td>
                             <td>
+                                <form action="" method="post" class="d-inline">
+                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="_method">
+                                    <button type="submit" class="btn btn-info">Lihat e-Clipping</button>
+                                </form>
                                 <form action="/clipping/hapus/<?= $c['id']; ?>" method="post" class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
