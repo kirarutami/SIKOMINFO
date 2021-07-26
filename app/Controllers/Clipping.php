@@ -19,7 +19,6 @@ class Clipping extends BaseController
             'title' => 'Daftar e-Clipping',
             'clipping' => $this->clippingModel->getClipping()
         ];
-        $i = 1;
 
 
 
