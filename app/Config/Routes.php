@@ -34,10 +34,10 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Clipping::index/$1');
 $routes->get('/clipping/form', 'Clipping::form/$1');
 $routes->get('/clipping/index', 'Clipping::index/$1');
-$routes->get('/clipping/form-clipping', 'Clipping::form/$1');
+$routes->get('/clipping/form', 'Clipping::form/$1');
 $routes->delete('/clipping/(:num)', 'Clipping::hapus/$1');
 
-$routes->get('/clipping/(:any)', 'Clipping::detail/$1');
+// $routes->get('/clipping/(:any)', 'Clipping::detail/$1');
 
 /*
  * --------------------------------------------------------------------

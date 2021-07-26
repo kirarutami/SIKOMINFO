@@ -19,6 +19,7 @@ class Clipping extends BaseController
             'title' => 'Daftar e-Clipping',
             'clipping' => $this->clippingModel->getClipping()
         ];
+        $i = 1;
 
 
 
@@ -72,7 +73,7 @@ class Clipping extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/clipping/form-clipping')->withInput();
+            return redirect()->to('/clipping/form')->withInput();
         }
         //ambil gambar
         $fileClipping = $this->request->getFile('file');
@@ -86,6 +87,7 @@ class Clipping extends BaseController
         $slug = date("d-m-Y");
         $this->clippingModel->save([
             'judul' => $this->request->getVar('judul'),
+            'clipping' => $this->clippingModel->getClipping(),
             'slug' => $slug,
             'file' => $namaClipping,
             'status' => $this->request->getVar('status'),

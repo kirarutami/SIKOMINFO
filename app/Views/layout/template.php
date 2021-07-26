@@ -1,46 +1,69 @@
-<!doctype html>
-<html lang="en">
+<!-- Header -->
+<?= $this->include('/layout/header'); ?>
+<!-- End of Header -->
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Sidebar -->
+<?= $this->include('/layout/sidebar'); ?>
+<!-- End of Sidebar -->
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- Stylesheet CSS (style.css) -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Main Content -->
+    <div id="content">
 
+        <!-- Topbar -->
+        <?= $this->include('/layout/topbar'); ?>
+        <!-- End of Topbar -->
 
-    <title><?= $title; ?></title>
-</head>
+        <!-- Begin Page Content -->
+        <?= $this->renderSection('content'); ?>
+        <!-- End of Main Content -->
 
-<body>
-    <?= $this->include('layout/navbar'); ?>
+        <!-- Footer -->
+        <?= $this->include('/layout/footer'); ?>
+        <!-- End of Footer -->
 
-    <?= $this->renderSection('content'); ?>
+    </div>
+    <!-- End of Content Wrapper -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
+</div>
+<!-- End of Page Wrapper -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
-    <!-- untuk previewpdf -->
-    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        function PreviewImg() {
-            pdffile1 = document.getElementById("file").files[0];
-            pdffile_url1 = URL.createObjectURL(pdffile1);
-            $('#viewer').attr('src', pdffile_url1);
-        }
-    </script> -->
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+<!-- Bootstrap core JavaScript-->
+<script src="<?= base_url('sbadmin2/vendor/jquery/jquery.min.js') ?>"></script>
+<script src="<?= base_url('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="<?= base_url('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="<?= base_url('sbadmin2/js/sb-admin-2.min.js') ?>"></script>
+
 </body>
 
 </html>
