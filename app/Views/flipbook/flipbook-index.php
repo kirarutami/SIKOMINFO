@@ -5,27 +5,27 @@
 <div class="bookshelf">
     <div class="covers">
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
@@ -36,27 +36,27 @@
 <div class="bookshelf">
     <div class="covers">
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
@@ -66,27 +66,27 @@
 <div class="bookshelf">
     <div class="covers">
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
         <div class="thumb book-1">
-            <a href="v-pdf.html">
+            <a href="/flipbook/detail">
                 <img src="images/book2/1.jpg">
             </a>
         </div>
