@@ -6,92 +6,92 @@
     <div class="covers">
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
     </div>
-    <img class="shelf-img" src="images/shelf_wood.png">
+    <img class="shelf-img" src="<?= base_url('flipbook/images/shelf_wood.png') ?>">
 </div>
 <br>
 <div class="bookshelf">
     <div class="covers">
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
     </div>
-    <img class="shelf-img" src="images/shelf_glass.png">
+    <img class="shelf-img" src="<?= base_url('flipbook/images/shelf_glass.png') ?>">
 </div>
 <div class="bookshelf">
     <div class="covers">
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
         <div class="thumb book-1">
             <a href="/flipbook/detail">
-                <img src="images/book2/1.jpg">
+                <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
             </a>
         </div>
     </div>
-    <img class="shelf-img" src="images/shelf_metal.png">
+    <img class="shelf-img" src="<?= base_url('flipbook/images/shelf_metal.png') ?>">
 </div>
 <!-- End Of PDF -->
 <?= $this->endSection(); ?>

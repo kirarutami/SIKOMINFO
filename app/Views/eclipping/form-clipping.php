@@ -7,6 +7,7 @@
             <h2 class="my-3">Form Tambah e-Clipping</h2>
             <form action="/clipping/save" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
+                <!-- Judul -->
                 <div class="row mb-3">
                     <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-10">
@@ -16,8 +17,15 @@
                         </div>
                     </div>
                 </div>
+                <!-- Tukang Upload -->
+                <div class="row mb-3">
+                    <label for="uploaded_by" class="col-sm-2 col-form-label">Diupload Oleh</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="uploaded_by" name="uploaded_by" autofocus value="<?= old('uploaded_by'); ?>">
+                    </div>
+                </div>
 
-                <!-- //ini row buat upload nanti -->
+                <!-- Upload File -->
                 <div class="row mb-3">
                     <label for="file" class="col-sm-2 col-form-label">Upload File</label>
                     <div class="col-sm-10">

@@ -25,8 +25,9 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Nama File</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Nama File</th>
+                                        <th scope="col">Uploader</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
@@ -38,6 +39,7 @@
                                             <td><?= $c['slug']; ?></td>
                                             <td><?= $c['file']; ?></td>
                                             <td><?= $c['status']; ?></td>
+                                            <td><?= $c['uploaded_by']; ?></td>
                                             <td>
                                                 <form action="" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>

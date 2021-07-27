@@ -63,6 +63,7 @@ class Clipping extends BaseController
                     'is_unique' => '{field} klipingnya udah ada, ganti yang laen!'
                 ]
             ],
+
             'file' => [
                 'rules' => 'uploaded[file]|max_size[file,25600]|mime_in[file,application/pdf]',
                 'errors' => [
@@ -89,6 +90,7 @@ class Clipping extends BaseController
             'clipping' => $this->clippingModel->getClipping(),
             'slug' => $slug,
             'file' => $namaClipping,
+            'uploaded_by' => $this->request->getVar('uploaded_by'),
             'status' => $this->request->getVar('status'),
 
         ]);
