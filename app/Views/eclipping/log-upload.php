@@ -41,7 +41,7 @@
                                             <td><?= $c['status']; ?></td>
                                             <td><?= $c['uploaded_by']; ?></td>
                                             <td>
-                                                <form action="" method="post" class="d-inline">
+                                                <form action="/clipping/detail/<?= $c['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method">
                                                     <button type="submit" class="btn btn-info">Lihat e-Clipping</button>

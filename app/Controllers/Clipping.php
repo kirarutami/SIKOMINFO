@@ -37,20 +37,20 @@ class Clipping extends BaseController
         return view('eclipping/form-clipping', $data);
     }
 
-    public function detail($slug)
+    public function detail($id)
 
     {
         $data = [
             'title' => 'Detail e-Clipping',
-            'clipping' => $this->clippingModel->getClipping($slug)
+            'clipping' => $this->clippingModel->getClipping($id)
 
         ];
 
         if (empty($data['clipping'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('e-Clipping Tanggal ' . $slug . ' tidak ditemukan.');
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Kliping dengan kode ' . $id . ' tidak ditemukan.');
         }
 
-        return view('eclipping/detail', $data);
+        return view('flipbook/flipbook-detail', $data);
     }
 
     public function save()

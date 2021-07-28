@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Include JS -->
-    <script src="js/flipbook.min.js"></script>
+    <script src="<?= base_url('flipbook/js/flipbook.min.js') ?>"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
             $("#read").flipBook({
                 //Layout Setting
-                pdfUrl: 'pdf/pdf.pdf',
+                pdfUrl: '<?= base_url('pdf/' . $clipping['file']); ?>',
                 lightBox: true,
                 layout: 3,
                 currentPage: {

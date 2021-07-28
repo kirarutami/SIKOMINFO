@@ -10,12 +10,12 @@ class ClippingModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['judul', 'slug', 'file', 'status', 'uploaded_by'];
 
-    public function getClipping($slug = false)
+    public function getClipping($id = false)
     {
-        if ($slug == false) {
-            return $this->findAll();
+        if ($id == false) {
+            return $this->orderBy('id', 'desc')->findAll();
         }
 
-        return $this->where(['slug' => $slug])->first();
+        return $this->where(['id' => $id])->first();
     }
 }
