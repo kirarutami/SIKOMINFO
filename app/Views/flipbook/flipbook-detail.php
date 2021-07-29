@@ -7,7 +7,7 @@
         <div class="card shadow">
             <div class="row">
                 <div class="col-md-3">
-                    <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>" class="w-100 book-1">
+                    <img src="<?= base_url('flipbook/images/sampul.png') ?>" class="w-100 book-1">
                 </div>
                 <div class="col-md-7 mt-3">
                     <!-- Info -->

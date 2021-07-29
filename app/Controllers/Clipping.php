@@ -14,18 +14,18 @@ class Clipping extends BaseController
     public function index()
 
     {
+
         $currentPage = $this->request->getVar('page_log_upload') ? $this->request->getVar('page_log_upload') : 1;
         $data = [
             'title' => 'Daftar e-Clipping',
-
-
             // Pagination | paginate(banyak_data_per_halaman, nama_tabel)
+
             'clipping' => $this->clippingModel->paginate(10, 'log_upload'),
             'pager' => $this->clippingModel->pager,
             'currentPage' => $currentPage
         ];
 
-
+        $this->clippingModel->getClipping();
 
         return view('eclipping/log-upload', $data);
     }

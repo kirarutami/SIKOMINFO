@@ -10,7 +10,7 @@
         ?>
             <div class="thumb">
                 <a href="/flipbook/detail/<?= $c['id']; ?>">
-                    <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
+                    <img src="<?= base_url('flipbook/images/sampul.png') ?>">
                 </a>
             </div>
         <?php endforeach; ?>

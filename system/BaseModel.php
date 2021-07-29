@@ -518,8 +518,7 @@ abstract class BaseModel
 	{
 		$singleton = is_numeric($id) || is_string($id);
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			// Call the before event and check for a return
 			$eventData = $this->trigger('beforeFind', [
 				'id'        => $id,
@@ -527,8 +526,7 @@ abstract class BaseModel
 				'singleton' => $singleton,
 			]);
 
-			if (! empty($eventData['returnData']))
-			{
+			if (!empty($eventData['returnData'])) {
 				return $eventData['data'];
 			}
 		}
@@ -540,8 +538,7 @@ abstract class BaseModel
 			'singleton' => $singleton,
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$eventData = $this->trigger('afterFind', $eventData);
 		}
 
@@ -563,8 +560,7 @@ abstract class BaseModel
 	 */
 	public function findColumn(string $columnName)
 	{
-		if (strpos($columnName, ',') !== false)
-		{
+		if (strpos($columnName, ',') !== false) {
 			throw DataException::forFindColumnHaveMultipleColumns();
 		}
 
@@ -583,8 +579,7 @@ abstract class BaseModel
 	 */
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			// Call the before event and check for a return
 			$eventData = $this->trigger('beforeFind', [
 				'method'    => 'findAll',
@@ -593,8 +588,7 @@ abstract class BaseModel
 				'singleton' => false,
 			]);
 
-			if (! empty($eventData['returnData']))
-			{
+			if (!empty($eventData['returnData'])) {
 				return $eventData['data'];
 			}
 		}
@@ -607,8 +601,7 @@ abstract class BaseModel
 			'singleton' => false,
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$eventData = $this->trigger('afterFind', $eventData);
 		}
 
@@ -626,16 +619,14 @@ abstract class BaseModel
 	 */
 	public function first()
 	{
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			// Call the before event and check for a return
 			$eventData = $this->trigger('beforeFind', [
 				'method'    => 'first',
 				'singleton' => true,
 			]);
 
-			if (! empty($eventData['returnData']))
-			{
+			if (!empty($eventData['returnData'])) {
 				return $eventData['data'];
 			}
 		}
@@ -646,8 +637,7 @@ abstract class BaseModel
 			'singleton' => true,
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$eventData = $this->trigger('afterFind', $eventData);
 		}
 
@@ -673,21 +663,16 @@ abstract class BaseModel
 	 */
 	public function save($data): bool
 	{
-		if (empty($data))
-		{
+		if (empty($data)) {
 			return true;
 		}
 
-		if ($this->shouldUpdate($data))
-		{
+		if ($this->shouldUpdate($data)) {
 			$response = $this->update($this->getIdValue($data), $data);
-		}
-		else
-		{
+		} else {
 			$response = $this->insert($data, false);
 
-			if ($response !== false)
-			{
+			if ($response !== false) {
 				$response = true;
 			}
 		}
@@ -702,9 +687,9 @@ abstract class BaseModel
 	 *
 	 * @return boolean
 	 */
-	protected function shouldUpdate($data) : bool
+	protected function shouldUpdate($data): bool
 	{
-		return ! empty($this->getIdValue($data));
+		return !empty($this->getIdValue($data));
 	}
 
 	/**
@@ -735,8 +720,7 @@ abstract class BaseModel
 		$data = $this->transformDataToArray($data, 'insert');
 
 		// Validate data before saving.
-		if (! $this->skipValidation && ! $this->cleanRules()->validate($data))
-		{
+		if (!$this->skipValidation && !$this->cleanRules()->validate($data)) {
 			return false;
 		}
 
@@ -746,28 +730,24 @@ abstract class BaseModel
 
 		// doProtectFields() can further remove elements from
 		// $data so we need to check for empty dataset again
-		if (empty($data))
-		{
+		if (empty($data)) {
 			throw DataException::forEmptyDataset('insert');
 		}
 
 		// Set created_at and updated_at with same time
 		$date = $this->setDate();
 
-		if ($this->useTimestamps && $this->createdField && ! array_key_exists($this->createdField, $data))
-		{
+		if ($this->useTimestamps && $this->createdField && !array_key_exists($this->createdField, $data)) {
 			$data[$this->createdField] = $date;
 		}
 
-		if ($this->useTimestamps && $this->updatedField && ! array_key_exists($this->updatedField, $data))
-		{
+		if ($this->useTimestamps && $this->updatedField && !array_key_exists($this->updatedField, $data)) {
 			$data[$this->updatedField] = $date;
 		}
 
 		$eventData = ['data' => $data];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$eventData = $this->trigger('beforeInsert', $eventData);
 		}
 
@@ -779,8 +759,7 @@ abstract class BaseModel
 			'result' => $result,
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			// Trigger afterInsert events with the inserted data and new ID
 			$this->trigger('afterInsert', $eventData);
 		}
@@ -788,8 +767,7 @@ abstract class BaseModel
 		$this->tempAllowCallbacks = $this->allowCallbacks;
 
 		// If insertion failed, get out of here
-		if (! $result)
-		{
+		if (!$result) {
 			return $result;
 		}
 
@@ -811,29 +789,24 @@ abstract class BaseModel
 	 */
 	public function insertBatch(?array $set = null, ?bool $escape = null, int $batchSize = 100, bool $testing = false)
 	{
-		if (is_array($set))
-		{
-			foreach ($set as &$row)
-			{
+		if (is_array($set)) {
+			foreach ($set as &$row) {
 				// If $data is using a custom class with public or protected
 				// properties representing the collection elements, we need to grab
 				// them as an array.
-				if (is_object($row) && ! $row instanceof stdClass)
-				{
+				if (is_object($row) && !$row instanceof stdClass) {
 					$row = $this->objectToArray($row, false, true);
 				}
 
 				// If it's still a stdClass, go ahead and convert to
 				// an array so doProtectFields and other model methods
 				// don't have to do special checks.
-				if (is_object($row))
-				{
+				if (is_object($row)) {
 					$row = (array) $row;
 				}
 
 				// Validate every row..
-				if (! $this->skipValidation && ! $this->cleanRules()->validate($row))
-				{
+				if (!$this->skipValidation && !$this->cleanRules()->validate($row)) {
 					return false;
 				}
 
@@ -844,13 +817,11 @@ abstract class BaseModel
 				// Set created_at and updated_at with same time
 				$date = $this->setDate();
 
-				if ($this->useTimestamps && $this->createdField && ! array_key_exists($this->createdField, $row))
-				{
+				if ($this->useTimestamps && $this->createdField && !array_key_exists($this->createdField, $row)) {
 					$row[$this->createdField] = $date;
 				}
 
-				if ($this->useTimestamps && $this->updatedField && ! array_key_exists($this->updatedField, $row))
-				{
+				if ($this->useTimestamps && $this->updatedField && !array_key_exists($this->updatedField, $row)) {
 					$row[$this->updatedField] = $date;
 				}
 			}
@@ -872,16 +843,14 @@ abstract class BaseModel
 	 */
 	public function update($id = null, $data = null): bool
 	{
-		if (is_numeric($id) || is_string($id))
-		{
+		if (is_numeric($id) || is_string($id)) {
 			$id = [$id];
 		}
 
 		$data = $this->transformDataToArray($data, 'update');
 
 		// Validate data before saving.
-		if (! $this->skipValidation && ! $this->cleanRules(true)->validate($data))
-		{
+		if (!$this->skipValidation && !$this->cleanRules(true)->validate($data)) {
 			return false;
 		}
 
@@ -891,13 +860,11 @@ abstract class BaseModel
 
 		// doProtectFields() can further remove elements from
 		// $data so we need to check for empty dataset again
-		if (empty($data))
-		{
+		if (empty($data)) {
 			throw DataException::forEmptyDataset('update');
 		}
 
-		if ($this->useTimestamps && $this->updatedField && ! array_key_exists($this->updatedField, $data))
-		{
+		if ($this->useTimestamps && $this->updatedField && !array_key_exists($this->updatedField, $data)) {
 			$data[$this->updatedField] = $this->setDate();
 		}
 
@@ -906,8 +873,7 @@ abstract class BaseModel
 			'data' => $data,
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$eventData = $this->trigger('beforeUpdate', $eventData);
 		}
 
@@ -917,8 +883,7 @@ abstract class BaseModel
 			'result' => $this->doUpdate($id, $eventData['data']),
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$this->trigger('afterUpdate', $eventData);
 		}
 
@@ -942,29 +907,24 @@ abstract class BaseModel
 	 */
 	public function updateBatch(array $set = null, string $index = null, int $batchSize = 100, bool $returnSQL = false)
 	{
-		if (is_array($set))
-		{
-			foreach ($set as &$row)
-			{
+		if (is_array($set)) {
+			foreach ($set as &$row) {
 				// If $data is using a custom class with public or protected
 				// properties representing the collection elements, we need to grab
 				// them as an array.
-				if (is_object($row) && ! $row instanceof stdClass)
-				{
+				if (is_object($row) && !$row instanceof stdClass) {
 					$row = $this->objectToArray($row, true, true);
 				}
 
 				// If it's still a stdClass, go ahead and convert to
 				// an array so doProtectFields and other model methods
 				// don't have to do special checks.
-				if (is_object($row))
-				{
+				if (is_object($row)) {
 					$row = (array) $row;
 				}
 
 				// Validate data before saving.
-				if (! $this->skipValidation && ! $this->cleanRules(true)->validate($row))
-				{
+				if (!$this->skipValidation && !$this->cleanRules(true)->validate($row)) {
 					return false;
 				}
 
@@ -976,13 +936,11 @@ abstract class BaseModel
 				$row = $this->doProtectFields($row);
 
 				// Restore updateIndex value in case it was wiped out
-				if ($updateIndex !== null)
-				{
+				if ($updateIndex !== null) {
 					$row[$index] = $updateIndex;
 				}
 
-				if ($this->useTimestamps && $this->updatedField && ! array_key_exists($this->updatedField, $row))
-				{
+				if ($this->useTimestamps && $this->updatedField && !array_key_exists($this->updatedField, $row)) {
 					$row[$this->updatedField] = $this->setDate();
 				}
 			}
@@ -1003,8 +961,7 @@ abstract class BaseModel
 	 */
 	public function delete($id = null, bool $purge = false)
 	{
-		if ($id && (is_numeric($id) || is_string($id)))
-		{
+		if ($id && (is_numeric($id) || is_string($id))) {
 			$id = [$id];
 		}
 
@@ -1013,8 +970,7 @@ abstract class BaseModel
 			'purge' => $purge,
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$this->trigger('beforeDelete', $eventData);
 		}
 
@@ -1025,8 +981,7 @@ abstract class BaseModel
 			'result' => $this->doDelete($id, $purge),
 		];
 
-		if ($this->tempAllowCallbacks)
-		{
+		if ($this->tempAllowCallbacks) {
 			$this->trigger('afterDelete', $eventData);
 		}
 
@@ -1043,8 +998,7 @@ abstract class BaseModel
 	 */
 	public function purgeDeleted()
 	{
-		if (! $this->useSoftDeletes)
-		{
+		if (!$this->useSoftDeletes) {
 			return true;
 		}
 
@@ -1061,7 +1015,7 @@ abstract class BaseModel
 	 */
 	public function withDeleted(bool $val = true)
 	{
-		$this->tempUseSoftDeletes = ! $val;
+		$this->tempUseSoftDeletes = !$val;
 
 		return $this;
 	}
@@ -1091,8 +1045,7 @@ abstract class BaseModel
 	public function replace(array $data = null, bool $returnSQL = false)
 	{
 		// Validate data before saving.
-		if ($data && ! $this->skipValidation && ! $this->cleanRules(true)->validate($data))
-		{
+		if ($data && !$this->skipValidation && !$this->cleanRules(true)->validate($data)) {
 			return false;
 		}
 
@@ -1113,8 +1066,7 @@ abstract class BaseModel
 	public function errors(bool $forceDB = false)
 	{
 		// Do we have validation errors?
-		if (! $forceDB && ! $this->skipValidation && ($errors = $this->validation->getErrors()))
-		{
+		if (!$forceDB && !$this->skipValidation && ($errors = $this->validation->getErrors())) {
 			return $errors;
 		}
 
@@ -1133,14 +1085,34 @@ abstract class BaseModel
 	 *
 	 * @return array|null
 	 */
-	public function paginate(int $perPage = null, string $group = 'default', int $page = null, int $segment = 0)
+	// public function paginate(int $perPage = null, string $group = 'default', int $page = null, int $segment = 0)
+	// {
+	// 	$pager = Services::pager(null, null, false);
+
+	// 	if ($segment)
+	// 	{
+	// 		$pager->setSegment($segment);
+	// 	}
+
+
+	// 	$page = $page >= 1 ? $page : $pager->getCurrentPage($group);
+	// 	// Store it in the Pager library, so it can be paginated in the views.
+	// 	$this->pager = $pager->store($group, $page, $perPage, $this->countAllResults(false), $segment);
+	// 	$perPage     = $this->pager->getPerPage($group);
+	// 	$offset      = ($page - 1) * $perPage;
+
+	// 	return $this->findAll($perPage, $offset);
+	// }
+
+	public function paginate(int $perPage = null, string $group = 'default', int $page = null, int $segment = 0, $id = false)
 	{
 		$pager = Services::pager(null, null, false);
 
-		if ($segment)
-		{
+		if ($segment) {
 			$pager->setSegment($segment);
 		}
+
+
 
 		$page = $page >= 1 ? $page : $pager->getCurrentPage($group);
 		// Store it in the Pager library, so it can be paginated in the views.
@@ -1149,6 +1121,12 @@ abstract class BaseModel
 		$offset      = ($page - 1) * $perPage;
 
 		return $this->findAll($perPage, $offset);
+
+		if ($id == false) {
+			return $this->orderBy('id', 'desc')->findAll();
+		}
+
+		return $this->where(['id' => $id])->first();
 	}
 
 	/**
@@ -1195,20 +1173,16 @@ abstract class BaseModel
 	 */
 	protected function doProtectFields(array $data): array
 	{
-		if (! $this->protectFields)
-		{
+		if (!$this->protectFields) {
 			return $data;
 		}
 
-		if (empty($this->allowedFields))
-		{
+		if (empty($this->allowedFields)) {
 			throw DataException::forInvalidAllowedFields(get_class($this));
 		}
 
-		foreach (array_keys($data) as $key)
-		{
-			if (! in_array($key, $this->allowedFields, true))
-			{
+		foreach (array_keys($data) as $key) {
+			if (!in_array($key, $this->allowedFields, true)) {
 				unset($data[$key]);
 			}
 		}
@@ -1250,8 +1224,7 @@ abstract class BaseModel
 	 */
 	protected function intToDate(int $value)
 	{
-		switch ($this->dateFormat)
-		{
+		switch ($this->dateFormat) {
 			case 'int':
 				return $value;
 			case 'datetime':
@@ -1277,8 +1250,7 @@ abstract class BaseModel
 	 */
 	protected function timeToDate(Time $value)
 	{
-		switch ($this->dateFormat)
-		{
+		switch ($this->dateFormat) {
 			case 'datetime':
 				return $value->format('Y-m-d H:i:s');
 			case 'date':
@@ -1393,14 +1365,12 @@ abstract class BaseModel
 	{
 		$rules = $this->getValidationRules();
 
-		if ($this->skipValidation || empty($rules) || empty($data))
-		{
+		if ($this->skipValidation || empty($rules) || empty($data)) {
 			return true;
 		}
 
 		//Validation requires array, so cast away.
-		if (is_object($data))
-		{
+		if (is_object($data)) {
 			$data = (array) $data;
 		}
 
@@ -1408,8 +1378,7 @@ abstract class BaseModel
 
 		// If no data existed that needs validation
 		// our job is done here.
-		if (empty($rules))
-		{
+		if (empty($rules)) {
 			return true;
 		}
 
@@ -1430,17 +1399,13 @@ abstract class BaseModel
 
 		// ValidationRules can be either a string, which is the group name,
 		// or an array of rules.
-		if (is_string($rules))
-		{
+		if (is_string($rules)) {
 			$rules = $this->validation->loadRuleGroup($rules);
 		}
 
-		if (isset($options['except']))
-		{
+		if (isset($options['except'])) {
 			$rules = array_diff_key($rules, array_flip($options['except']));
-		}
-		elseif (isset($options['only']))
-		{
+		} elseif (isset($options['only'])) {
 			$rules = array_intersect_key($rules, array_flip($options['only']));
 		}
 
@@ -1470,15 +1435,12 @@ abstract class BaseModel
 	 */
 	protected function cleanValidationRules(array $rules, array $data = null): array
 	{
-		if (empty($data))
-		{
+		if (empty($data)) {
 			return [];
 		}
 
-		foreach (array_keys($rules) as $field)
-		{
-			if (! array_key_exists($field, $data))
-			{
+		foreach (array_keys($rules) as $field) {
+			if (!array_key_exists($field, $data)) {
 				unset($rules[$field]);
 			}
 		}
@@ -1526,15 +1488,12 @@ abstract class BaseModel
 	protected function trigger(string $event, array $eventData)
 	{
 		// Ensure it's a valid event
-		if (! isset($this->{$event}) || empty($this->{$event}))
-		{
+		if (!isset($this->{$event}) || empty($this->{$event})) {
 			return $eventData;
 		}
 
-		foreach ($this->{$event} as $callback)
-		{
-			if (! method_exists($this, $callback))
-			{
+		foreach ($this->{$event} as $callback) {
+			if (!method_exists($this, $callback)) {
 				throw DataException::forInvalidMethodTriggered($callback);
 			}
 
@@ -1592,11 +1551,9 @@ abstract class BaseModel
 		$properties = $this->objectToRawArray($data, $onlyChanged, $recursive);
 
 		// Convert any Time instances to appropriate $dateFormat
-		if ($properties)
-		{
+		if ($properties) {
 			$properties = array_map(function ($value) {
-				if ($value instanceof Time)
-				{
+				if ($value instanceof Time) {
 					return $this->timeToDate($value);
 				}
 				return $value;
@@ -1620,12 +1577,9 @@ abstract class BaseModel
 	 */
 	protected function objectToRawArray($data, bool $onlyChanged = true, bool $recursive = false): ?array
 	{
-		if (method_exists($data, 'toRawArray'))
-		{
+		if (method_exists($data, 'toRawArray')) {
 			$properties = $data->toRawArray($onlyChanged, $recursive);
-		}
-		else
-		{
+		} else {
 			$mirror = new ReflectionClass($data);
 			$props  = $mirror->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);
 
@@ -1633,8 +1587,7 @@ abstract class BaseModel
 
 			// Loop over each property,
 			// saving the name/value in a new array we can return.
-			foreach ($props as $prop)
-			{
+			foreach ($props as $prop) {
 				// Must make protected values accessible.
 				$prop->setAccessible(true);
 				$properties[$prop->getName()] = $prop->getValue($data);
@@ -1658,35 +1611,30 @@ abstract class BaseModel
 	 */
 	protected function transformDataToArray($data, string $type): array
 	{
-		if (! in_array($type, ['insert', 'update'], true))
-		{
+		if (!in_array($type, ['insert', 'update'], true)) {
 			throw new InvalidArgumentException(sprintf('Invalid type "%s" used upon transforming data to array.', $type));
 		}
 
-		if (empty($data))
-		{
+		if (empty($data)) {
 			throw DataException::forEmptyDataset($type);
 		}
 
 		// If $data is using a custom class with public or protected
 		// properties representing the collection elements, we need to grab
 		// them as an array.
-		if (is_object($data) && ! $data instanceof stdClass)
-		{
+		if (is_object($data) && !$data instanceof stdClass) {
 			$data = $this->objectToArray($data, true, true);
 		}
 
 		// If it's still a stdClass, go ahead and convert to
 		// an array so doProtectFields and other model methods
 		// don't have to do special checks.
-		if (is_object($data))
-		{
+		if (is_object($data)) {
 			$data = (array) $data;
 		}
 
 		// If it's still empty here, means $data is no change or is empty object
-		if (empty($data))
-		{
+		if (empty($data)) {
 			throw DataException::forEmptyDataset($type);
 		}
 
@@ -1702,13 +1650,11 @@ abstract class BaseModel
 	 */
 	public function __get(string $name)
 	{
-		if (property_exists($this, $name))
-		{
+		if (property_exists($this, $name)) {
 			return $this->$name;
 		}
 
-		if (isset($this->db->$name))
-		{
+		if (isset($this->db->$name)) {
 			return $this->db->$name;
 		}
 
@@ -1724,8 +1670,7 @@ abstract class BaseModel
 	 */
 	public function __isset(string $name): bool
 	{
-		if (property_exists($this, $name))
-		{
+		if (property_exists($this, $name)) {
 			return true;
 		}
 		return isset($this->db->$name);
@@ -1741,8 +1686,7 @@ abstract class BaseModel
 	 */
 	public function __call(string $name, array $params)
 	{
-		if (method_exists($this->db, $name))
-		{
+		if (method_exists($this->db, $name)) {
 			return $this->db->{$name}(...$params);
 		}
 
@@ -1777,23 +1721,17 @@ abstract class BaseModel
 	{
 		$replacements = [];
 
-		foreach ($data as $key => $value)
-		{
+		foreach ($data as $key => $value) {
 			$replacements['{' . $key . '}'] = $value;
 		}
 
-		if (! empty($replacements))
-		{
-			foreach ($rules as &$rule)
-			{
-				if (is_array($rule))
-				{
-					foreach ($rule as &$row)
-					{
+		if (!empty($replacements)) {
+			foreach ($rules as &$rule) {
+				if (is_array($rule)) {
+					foreach ($rule as &$row) {
 						// Should only be an `errors` array
 						// which doesn't take placeholders.
-						if (is_array($row))
-						{
+						if (is_array($row)) {
 							continue;
 						}
 

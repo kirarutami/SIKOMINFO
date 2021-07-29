@@ -16,6 +16,8 @@ class Flipbook extends BaseController
     public function index()
     {
         $currentPage = $this->request->getVar('page_log_upload') ? $this->request->getVar('page_log_upload') : 1;
+        d($this->request->getVar('search'));
+
         $data = [
             'title' => 'Dashboard e-Clipping',
             // 'clipping' => $this->flipbookModel->getClipping()

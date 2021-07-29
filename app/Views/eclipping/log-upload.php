@@ -62,7 +62,7 @@
                 </div>
 
                 <!-- Pagination -->
-                <?= $pager->links('log_upload', 'clipping_pagination'); ?>
+                <!-- <?= $pager->links('log_upload', 'clipping_pagination'); ?> -->
 
                 <!-- /.container-fluid -->
 
