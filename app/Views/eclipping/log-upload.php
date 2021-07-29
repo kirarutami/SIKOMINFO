@@ -25,14 +25,15 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Status</th>
                                         <th scope="col">Nama File</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Uploader</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?= $i = 1; ?>
+                                    <!-- Statement untuk numbering | 10 di bawah sesuaikan dengan jumlah maksimum data per halaman  -->
+                                    <?php $i = 1 + (10 * ($currentPage - 1)); ?>
                                     <?php foreach ($clipping as $c) : ?>
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
@@ -41,7 +42,7 @@
                                             <td><?= $c['status']; ?></td>
                                             <td><?= $c['uploaded_by']; ?></td>
                                             <td>
-                                                <form action="/clipping/detail/<?= $c['id']; ?>" method="post" class="d-inline">
+                                                <form action="/flipbook/detail/<?= $c['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method">
                                                     <button type="submit" class="btn btn-info">Lihat e-Clipping</button>
@@ -59,6 +60,9 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Pagination -->
+                <?= $pager->links('log_upload', 'clipping_pagination'); ?>
 
                 <!-- /.container-fluid -->
 

@@ -9,7 +9,7 @@
         foreach ($clipping as $c) :
         ?>
             <div class="thumb">
-                <a href="/clipping/detail/<?= $c['id']; ?>">
+                <a href="/flipbook/detail/<?= $c['id']; ?>">
                     <img src="<?= base_url('flipbook/images/book2/1.jpg') ?>">
                 </a>
             </div>
@@ -81,6 +81,8 @@
     <img class="shelf-img" src="<?= base_url('flipbook/images/shelf_metal.png') ?>">
 </div>
         -->
+
+<?= $pager->links('log_upload', 'flipbook_pagination'); ?>
 <!-- End Of PDF -->
 
 

@@ -24,6 +24,13 @@ class Pager extends BaseConfig
 		'default_full'   => 'CodeIgniter\Pager\Views\default_full',
 		'default_simple' => 'CodeIgniter\Pager\Views\default_simple',
 		'default_head'   => 'CodeIgniter\Pager\Views\default_head',
+
+
+		//pagination untuk flipbook-index
+		'flipbook_pagination' => 'App\Views\flipbook-layout\flipbook-pagination',
+
+		//pagination untuk log-upload (admin)
+		'clipping_pagination' => 'App\Views\layout\pagination'
 	];
 
 	/**
