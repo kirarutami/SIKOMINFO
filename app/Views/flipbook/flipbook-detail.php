@@ -20,7 +20,7 @@
                         <a href="/pdf/<?= $clipping['file']; ?>" class="btn btn-primary mt-2 text-white" download>Unduh PDF <i class="fas fa-download fa-lg"></i></a>
                     </div>
                     <!-- Description -->
-                    <p id="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quo velit consequuntur, iste, impedit dignissimos vitae nesciunt et commodi quos quis iusto est iure tenetur eum amet quas temporibus esse praesentium incidunt sequi ratione. Fuga ab quas itaque enim, molestiae, totam, necessitatibus magni dolores eligendi obcaecati libero omnis iste. Facilis.</p>
+                    <p id="description"><?= $clipping['deskripsi']; ?></p>
                 </div>
             </div>
         </div>

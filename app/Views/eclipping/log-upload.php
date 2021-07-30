@@ -32,8 +32,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Statement untuk numbering | 10 di bawah sesuaikan dengan jumlah maksimum data per halaman  -->
-                                    <!-- ?php $i = 1 + (10 * ($currentPage - 1)); ?> -->
                                     <?php $i = 1; ?>
                                     <?php foreach ($clipping as $c) : ?>
                                         <tr>

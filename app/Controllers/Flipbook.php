@@ -20,11 +20,9 @@ class Flipbook extends BaseController
 
         $data = [
             'title' => 'Dashboard e-Clipping',
-            // 'clipping' => $this->flipbookModel->getClipping()
 
-            //pagination
-
-            'clipping' => $this->flipbookModel->paginate(5, 'log_upload'),
+            //Pagination
+            'clipping' => $this->flipbookModel->orderBy('id', 'DESC')->paginate(5, 'log_upload'),
             'pager' => $this->flipbookModel->pager,
             'currentPage' => $currentPage
         ];

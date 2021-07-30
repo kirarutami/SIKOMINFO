@@ -8,7 +8,7 @@ class FlipbookModel extends Model
 {
     protected $table = 'log_upload';
     protected $useTimestamps = true;
-    protected $allowedFields = ['judul', 'slug', 'file', 'status', 'uploaded_by'];
+    protected $allowedFields = ['judul', 'slug', 'file', 'status', 'deskripsi', 'uploaded_by'];
 
     public function getClipping($id = false)
     {

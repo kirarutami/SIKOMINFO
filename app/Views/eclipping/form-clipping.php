@@ -24,7 +24,13 @@
                         <input type="text" class="form-control" id="uploaded_by" name="uploaded_by" autofocus value="<?= old('uploaded_by'); ?>">
                     </div>
                 </div>
-
+                <!-- Deskripsi -->
+                <div class="row mb-3">
+                    <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" autofocus value="<?= old('deskripsi'); ?>">
+                    </div>
+                </div>
                 <!-- Upload File -->
                 <div class="row mb-3">
                     <label for="file" class="col-sm-2 col-form-label">Upload File</label>

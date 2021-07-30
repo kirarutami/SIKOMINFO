@@ -2,16 +2,20 @@
 <?= $this->section('content'); ?>
 
 <!-- PDF HERE -->
-<div class="bookshelf">
+<!-- <h1 class="mt-1 align-middle">Sistem Informasi Kliping Online Media Informasi</h1> -->
+<div class="bookshelf mt-5">
     <div class="covers">
 
         <?php
         foreach ($clipping as $c) :
         ?>
+
             <div class="thumb">
+                <label><?= $c['judul'] ?></label>
                 <a href="/flipbook/detail/<?= $c['id']; ?>">
                     <img src="<?= base_url('flipbook/images/sampul.png') ?>">
                 </a>
+
             </div>
         <?php endforeach; ?>
 
@@ -19,8 +23,8 @@
     <img class="shelf-img" src="<?= base_url('flipbook/images/shelf_wood.png') ?>">
 </div>
 <br>
-<!--
-<div class="bookshelf">
+
+<!-- <div class="bookshelf">
     <div class="covers">
         <div class="thumb book-1">
             <a href="/flipbook/detail">
@@ -79,8 +83,8 @@
         </div>
     </div>
     <img class="shelf-img" src="<?= base_url('flipbook/images/shelf_metal.png') ?>">
-</div>
-        -->
+</div> -->
+
 
 <?= $pager->links('log_upload', 'flipbook_pagination'); ?>
 <!-- End Of PDF -->

@@ -14,16 +14,9 @@ class Clipping extends BaseController
     public function index()
 
     {
-
-        // $currentPage = $this->request->getVar('page_log_upload') ? $this->request->getVar('page_log_upload') : 1;
         $data = [
             'title' => 'Daftar e-Clipping',
-            // Pagination | paginate(banyak_data_per_halaman, nama_tabel)
-
-            // 'clipping' => $this->clippingModel->paginate(10, 'log_upload'),
             'clipping' => $this->clippingModel->getClipping(),
-            // 'pager' => $this->clippingModel->pager,
-            // 'currentPage' => $currentPage
         ];
 
         return view('eclipping/log-upload', $data);
@@ -40,23 +33,6 @@ class Clipping extends BaseController
 
         return view('eclipping/form-clipping', $data);
     }
-
-    // public function detail($id)
-
-    // {
-    //     $data = [
-    //         'title' => 'Detail e-Clipping',
-    //         'clipping' => $this->clippingModel->getClipping($id)
-
-    //     ];
-
-    //     if (empty($data['clipping'])) {
-    //         throw new \CodeIgniter\Exceptions\PageNotFoundException('Kliping dengan kode ' . $id . ' tidak ditemukan.');
-    //     }
-
-    //     return view('flipbook/flipbook-detail', $data);
-    // }
-
     public function save()
     {
         if (!$this->validate([
@@ -88,7 +64,7 @@ class Clipping extends BaseController
 
 
 
-        $slug = date("m");
+        $slug = date("d-m-Y");
         $this->clippingModel->save([
             'judul' => $this->request->getVar('judul'),
             'clipping' => $this->clippingModel->getClipping(),
@@ -96,6 +72,7 @@ class Clipping extends BaseController
             'file' => $namaClipping,
             'uploaded_by' => $this->request->getVar('uploaded_by'),
             'status' => $this->request->getVar('status'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
 
         ]);
 

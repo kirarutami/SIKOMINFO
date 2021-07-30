@@ -88,7 +88,7 @@
             margin: 0px 0.5%;
             width: 15% !important;
             box-shadow: 0px 1px 3px rgba(0, 0, 0, .3);
-            max-width: 120px;
+            max-width: 200px;
         }
 
         .bookshelf .thumb img {
@@ -99,7 +99,7 @@
 
         .bookshelf .shelf-img {
             z-index: 0;
-            height: auto;
+            height: 15%;
             max-width: 100%;
             vertical-align: top;
             margin-top: -12px;
