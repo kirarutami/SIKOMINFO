@@ -28,9 +28,6 @@ class Pager extends BaseConfig
 
 		//pagination untuk flipbook-index
 		'flipbook_pagination' => 'App\Views\flipbook-layout\flipbook-pagination',
-
-		//pagination untuk log-upload (admin)
-		'clipping_pagination' => 'App\Views\layout\pagination'
 	];
 
 	/**

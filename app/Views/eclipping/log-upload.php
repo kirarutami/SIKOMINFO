@@ -13,7 +13,7 @@
                     </div>
                 <?php endif ?>
 
-                <!-- DataTales -->
+                <!-- DataTables -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Data e-Clipping Indragiri Hulu</h6>
@@ -25,7 +25,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Tanggal</th>
-                                        <th scope="col">Nama File</th>
+                                        <th scope="col">Judul</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Uploader</th>
                                         <th scope="col">Aksi</th>
@@ -33,12 +33,13 @@
                                 </thead>
                                 <tbody>
                                     <!-- Statement untuk numbering | 10 di bawah sesuaikan dengan jumlah maksimum data per halaman  -->
-                                    <?php $i = 1 + (10 * ($currentPage - 1)); ?>
+                                    <!-- ?php $i = 1 + (10 * ($currentPage - 1)); ?> -->
+                                    <?php $i = 1; ?>
                                     <?php foreach ($clipping as $c) : ?>
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
                                             <td><?= $c['slug']; ?></td>
-                                            <td><?= $c['file']; ?></td>
+                                            <td><?= $c['judul']; ?></td>
                                             <td><?= $c['status']; ?></td>
                                             <td><?= $c['uploaded_by']; ?></td>
                                             <td>
@@ -60,10 +61,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <!-- Pagination -->
-                <!-- <?= $pager->links('log_upload', 'clipping_pagination'); ?> -->
+<!-- /.container-fluid -->
 
-                <!-- /.container-fluid -->
-
-                <?= $this->endSection(); ?>
+<?= $this->endSection(); ?>

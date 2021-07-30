@@ -3,10 +3,8 @@
 
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-         <div class="sidebar-brand-icon rotate-n-15">
-             <i class="fas fa-laugh-wink"></i>
-         </div>
-         <div class="sidebar-brand-text mx-3">e-Clipping</div>
+         <img src="<?= base_url('sbadmin2/img/logo-inhu.png') ?>" width="25" height="30" inline>
+         <div class="sidebar-brand-text mx-3">SIKOMINFO</div>
      </a>
 
      <!-- Divider -->

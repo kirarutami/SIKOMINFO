@@ -38,14 +38,25 @@
      </div>
  </div>
  <!-- Bootstrap core JavaScript-->
- <script src="<?= base_url('sbadmin2/vendor/jquery/jquery.min.js') ?>"></script>
- <script src="<?= base_url('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+ <script type="text/javascript" src="<?= base_url('sbadmin2/vendor/jquery/jquery.min.js') ?>"></script>
+ <script type="text/javascript" src="<?= base_url('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
  <!-- Core plugin JavaScript-->
- <script src="<?= base_url('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+ <script type="text/javascript" src="<?= base_url('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 
  <!-- Custom scripts for all pages-->
- <script src="<?= base_url('jsbadmin2/s/sb-admin-2.min.js') ?>"></script>
+ <script type="text/javascript" src="<?= base_url('sbadmin2/js/sb-admin-2.min.js') ?>"></script>
+
+
+ <!-- Page level plugins -->
+ <script type="text/javascript" src="<?= base_url('sbadmin2/vendor/datatables/jquery.dataTables.js') ?>"></script>
+ <script type="text/javascript" src="<?= base_url('sbadmin2/vendor/datatables/dataTables.bootstrap5.min.js') ?>"></script>
+ <script>
+     $(document).ready(function() {
+         $.noConflict();
+         $('#dataTable').DataTable();
+     });
+ </script>
 
  </body>
 
