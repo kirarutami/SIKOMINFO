@@ -16,13 +16,20 @@ class Flipbook extends BaseController
     public function index()
     {
         $currentPage = $this->request->getVar('page_log_upload') ? $this->request->getVar('page_log_upload') : 1;
-        d($this->request->getVar('search'));
+
+
+        $search = $this->request->getVar('search');
+        if ($search) {
+            $flipbook = $this->flipbookModel->search($search);
+        } else {
+            $flipbook = $this->flipbookModel;
+        }
 
         $data = [
             'title' => 'Dashboard e-Clipping',
 
             //Pagination
-            'clipping' => $this->flipbookModel->orderBy('id', 'DESC')->paginate(5, 'log_upload'),
+            'clipping' => $flipbook->orderBy('id', 'DESC')->paginate(5, 'log_upload'),
             'pager' => $this->flipbookModel->pager,
             'currentPage' => $currentPage
         ];
