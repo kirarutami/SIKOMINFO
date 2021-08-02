@@ -144,7 +144,7 @@
         <div class="container">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Tentang KPK</h5>
+                    <h5>Tentang SIKOMINFO</h5>
                     <ul class="list-unstyled quick-links">
                         <li><a href="#"><i class="fa fa-angle-double-right"></i>About</a></li>
                         <li><a href="#"><i class="fa fa-angle-double-right"></i>Pejabat Struktural</a></li>
@@ -161,12 +161,12 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Kontak KPK</h5>
+                    <h5>Kontak SIKOMINFO</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i></i>GEDUNG KPK Jl. Kuningan Persada Kav. 4 Jakarta Selatan 12950</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i></i>Pematang Reba, Rengat Bar., Kabupaten Indragiri Hulu, Riau 29351</a></li>
                         <li><a href="#"><i class="fas fa-phone"></i>(021) 2557 8300</a></li>
                         <li><a href="#"><i class="fas fa-fax"></i>(021) 2557 8333</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i>informasi@kpk.go.id</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i>informasi@sikominfo.go.id</a></li>
                         <li><a href="#"><i class="fas fa-headset"></i></i>Call Center: 198</a></li>
                     </ul>
                 </div>
@@ -184,7 +184,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p class="h6">Hak Cipta © 2017 Komisi Pemberantasan Korupsi. Semua Hak Dilindungi.</p>
+                    <p class="h6">Hak Cipta © <?= date('Y'); ?> Sistem Informasi Kliping Online Media Informasi. Semua Hak Dilindungi.</p>
                 </div>
                 </hr>
             </div>

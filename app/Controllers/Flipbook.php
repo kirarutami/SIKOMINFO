@@ -17,7 +17,7 @@ class Flipbook extends BaseController
     {
         $currentPage = $this->request->getVar('page_log_upload') ? $this->request->getVar('page_log_upload') : 1;
 
-
+        // Search berdasarkan Judul dan slug, cek FlipbookModel
         $search = $this->request->getVar('search');
         if ($search) {
             $flipbook = $this->flipbookModel->search($search);

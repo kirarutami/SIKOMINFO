@@ -15,7 +15,6 @@ class Email extends BaseConfig
 	 * @var string
 	 */
 	public $fromName;
-
 	/**
 	 * @var string
 	 */
@@ -167,5 +166,4 @@ class Email extends BaseConfig
 	 * @var boolean
 	 */
 	public $DSN = false;
-
 }
