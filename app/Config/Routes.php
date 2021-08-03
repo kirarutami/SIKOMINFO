@@ -31,6 +31,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->get('/index.php/login', 'User::index/$1');
+
 $routes->get('/', 'Flipbook::index/$1');
 $routes->get('/clipping/form', 'Clipping::form/$1');
 $routes->get('/clipping/index', 'Clipping::index/$1');
@@ -38,6 +40,8 @@ $routes->get('/clipping/form', 'Clipping::form/$1');
 
 $routes->get('clipping/(:segment)', 'Clipping::detail/$1');
 $routes->delete('/clipping/(:num)', 'Clipping::hapus/$1');
+
+
 
 // $routes->get('/clipping/(:any)', 'Clipping::detail/$1');
 
