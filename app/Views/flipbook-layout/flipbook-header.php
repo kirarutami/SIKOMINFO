@@ -100,7 +100,8 @@
         .bookshelf .shelf-img {
             z-index: 0;
             height: 15%;
-            max-width: 100%;
+            width: 75%;
+            max-width: 200%;
             vertical-align: top;
             margin-top: -12px;
         }
@@ -135,7 +136,7 @@
             color: #fff;
         }
     </style>
-    <link rel="shortcut icon" href="images/KPK_Logo.svg">
+    <!-- <link rel="shortcut icon" href="images/KPK_Logo.svg"> -->
 
 </head>
 
