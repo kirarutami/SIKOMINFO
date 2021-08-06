@@ -24,12 +24,12 @@ class User extends BaseController
         return view('auth/login', $data);
     }
 
-    public function register()
-    {
-        $data = [
-            'title' => 'Registrasi',
-        ];
+    // public function register()
+    // {
+    //     $data = [
+    //         'title' => 'Registrasi',
+    //     ];
 
-        return view('auth/register', $data);
-    }
+    //     return view('auth/register', $data);
+    // }
 }
