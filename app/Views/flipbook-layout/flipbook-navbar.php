@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form action="" class="form-inline ml-auto">
+        <form action="" method="POST" class="form-inline ml-auto">
             <input name="search" class="form-control mr-sm-2" type="text" placeholder="Search PDF..." aria-label="Search">
             <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
         </form>

@@ -18,14 +18,4 @@ class FlipbookModel extends Model
 
         return $this->where(['id' => $id])->first();
     }
-
-    public function search($search)
-    {
-        //query builder
-        $builder = $this->table('log_upload');
-        $builder = $this->like('judul', $search);
-        $builder = $this->like('slug', $search);
-
-        return $builder;
-    }
 }
