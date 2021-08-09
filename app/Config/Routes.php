@@ -42,7 +42,8 @@ $routes->get('/clipping/index', 'Clipping::index/$1');
 $routes->get('/clipping/form', 'Clipping::form/$1');
 
 $routes->get('clipping/(:segment)', 'Clipping::detail/$1');
-$routes->delete('/clipping/(:num)', 'Clipping::hapus/$1');
+$routes->delete('/clipping/(:num)', 'Clipping::hapus/$1', ['filter' => 'role:superadmin']);
+$routes->delete('/admin/(:num)', 'Admin::hapus/$1', ['filter' => 'role:superadmin']);
 
 
 

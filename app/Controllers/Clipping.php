@@ -55,11 +55,8 @@ class Clipping extends BaseController
         ])) {
             return redirect()->to('/clipping/form')->withInput();
         }
-        //ambil gambar
         $fileClipping = $this->request->getFile('file');
-        //pindah file ke /public/pdf/
         $fileClipping->move('pdf');
-        //ambil nama file
         $namaClipping = $fileClipping->getName();
 
 
@@ -82,10 +79,7 @@ class Clipping extends BaseController
     }
     public function hapus($id)
     {
-
-        //first thing first cari dulu gambarnya
         $clipping = $this->clippingModel->find($id);
-        //hapus file
         unlink('pdf/' . $clipping['file']);
         $this->clippingModel->delete($id);
         return redirect()->to('/clipping/index');

@@ -46,11 +46,13 @@
                                                     <input type="hidden" name="_method">
                                                     <button type="submit" class="btn btn-info">Lihat e-Clipping</button>
                                                 </form>
-                                                <form action="/clipping/hapus/<?= $c['id']; ?>" method="post" class="d-inline">
-                                                    <?= csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('yakin lu lur?');">Hapus</button>
-                                                </form>
+                                                <?php if (in_groups('superadmin')) : ?>
+                                                    <form action="/clipping/hapus/<?= $c['id']; ?>" method="post" class="d-inline">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin?');">Hapus</button>
+                                                    </form>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
