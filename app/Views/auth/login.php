@@ -17,7 +17,7 @@
 
                 <?php if ($config->validFields === ['email']) : ?>
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                        <input class="input100 <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" type="text" name="login" value="<?= old('email') ?>">
+                        <input class="input100 <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" type="email" name="login" value="<?= old('email') ?>">
                         <span class="focus-input100" data-placeholder="<?= lang('Auth.email') ?>" autocomplete="off"></span>
                         <div class="invalid-feedback">
                             <?= session('errors.login') ?>

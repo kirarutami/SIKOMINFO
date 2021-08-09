@@ -16,7 +16,6 @@ class Flipbook extends BaseController
     public function index()
     {
         $currentPage = $this->request->getVar('page_log_upload') ? $this->request->getVar('page_log_upload') : 1;
-<<<<<<< HEAD
 
         // Search berdasarkan Judul dan slug, cek FlipbookModel
         $search = $this->request->getVar('search');
@@ -25,15 +24,12 @@ class Flipbook extends BaseController
         } else {
             $flipbook = $this->flipbookModel;
         }
-=======
-        d($this->request->getVar('search'));
->>>>>>> parent of 4a695fd (Day #29)
 
         $data = [
             'title' => 'Dashboard e-Clipping',
 
             //Pagination
-            'clipping' => $this->flipbookModel->orderBy('id', 'DESC')->paginate(5, 'log_upload'),
+            'clipping' => $flipbook->orderBy('id', 'DESC')->paginate(5, 'log_upload'),
             'pager' => $this->flipbookModel->pager,
             'currentPage' => $currentPage
         ];

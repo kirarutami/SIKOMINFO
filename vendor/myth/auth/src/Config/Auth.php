@@ -6,6 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class Auth extends BaseConfig
 {
+
 	/**
 	 * --------------------------------------------------------------------
 	 * Default User Group
@@ -37,10 +38,10 @@ class Auth extends BaseConfig
 	 * @var array
 	 */
 	public $views = [
-		'login'		   => 'Myth\Auth\Views\login',
+		// 'login'		   => 'Myth\Auth\Views\login',
 		// 'register'		=> 'Myth\Auth\Views\register',
-		// 'login'		   => '\App\Views\Auth\login',
-		'register'		=> '\App\Views\Auth\register',
+		'login'		   => 'App\Views\Auth\login',
+		'register'		=> 'App\Views\Auth\register',
 		'forgot'		  => 'Myth\Auth\Views\forgot',
 		'reset'		   => 'Myth\Auth\Views\reset',
 		'emailForgot'	 => 'Myth\Auth\Views\emails\forgot',

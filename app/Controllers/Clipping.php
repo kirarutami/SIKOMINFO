@@ -6,7 +6,14 @@ use App\Models\ClippingModel;
 
 class Clipping extends BaseController
 {
+
     protected $clippingModel;
+    /**
+     * Instance of the main Request object.
+     *
+     * @var HTTP\IncomingRequest
+     */
+    protected $request;
     public function __construct()
     {
         $this->clippingModel = new ClippingModel();
