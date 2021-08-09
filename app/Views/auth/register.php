@@ -20,6 +20,11 @@
                     <span class="focus-input100" data-placeholder="<?= lang('Auth.username') ?>"></span>
                 </div>
 
+                <div class="wrap-input100 validate-input">
+                    <input class="input100 " type="text" name="fullname" id="fullname">
+                    <span class="focus-input100" data-placeholder="Full Name"></span>
+                </div>
+
                 <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
                     <input class="input100 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" type="text" name="email">
                     <span class="focus-input100" data-placeholder="<?= lang('Auth.email') ?>"></span>

@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 $routes->get('/', 'Flipbook::index/$1');
+$routes->get('/admin', 'Admin::index/$1', ['filter' => 'role:superadmin']);
+$routes->get('/admin/index', 'Admin::index/$1', ['filter' => 'role:superadmin']);
 
 $routes->post('/clipping', 'Clipping::index/$1');
 $routes->get('/clipping/form', 'Clipping::form/$1');
