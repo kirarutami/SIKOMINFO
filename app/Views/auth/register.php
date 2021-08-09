@@ -6,13 +6,13 @@
 
             <form class="login100-form validate-form" action=" <?= route_to('register') ?>" method="post">
                 <?= csrf_field() ?>
-
+                <span class="login100-form-title p-b-48">
+                    <img src="<?= base_url('flipbook/images/logo.png') ?>" alt="SIKOMINFO LOGO" width="100">
+                </span>
                 <span class="login100-form-title p-b-26">
                     <?= lang('Auth.register') ?>
                 </span>
-                <span class="login100-form-title p-b-48">
-                    <i class="zmdi zmdi-font"></i>
-                </span>
+
                 <?= view('Myth\Auth\Views\_message_block') ?>
 
                 <div class="wrap-input100 validate-input">

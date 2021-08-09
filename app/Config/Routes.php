@@ -31,9 +31,10 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/login', 'User::login');
 
 $routes->get('/', 'Flipbook::index/$1');
+
+$routes->post('/clipping', 'Clipping::index/$1');
 $routes->get('/clipping/form', 'Clipping::form/$1');
 $routes->get('/clipping/index', 'Clipping::index/$1');
 $routes->get('/clipping/form', 'Clipping::form/$1');

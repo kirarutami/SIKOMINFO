@@ -6,13 +6,13 @@
 
             <form action="<?= route_to('login') ?>" method="post">
                 <?= csrf_field() ?>
-
+                <span class="login100-form-title p-b-48">
+                    <img src="<?= base_url('flipbook/images/logo.png') ?>" alt="SIKOMINFO LOGO" width="100">
+                </span>
                 <span class="login100-form-title p-b-26">
                     <?= lang('Auth.loginTitle') ?>
                 </span>
-                <span class="login100-form-title p-b-48">
-                    <i class="zmdi zmdi-font"></i>
-                </span>
+
                 <?= view('Myth\Auth\Views\_message_block') ?>
 
                 <?php if ($config->validFields === ['email']) : ?>
