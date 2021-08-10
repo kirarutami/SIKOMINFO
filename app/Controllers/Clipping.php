@@ -73,7 +73,7 @@ class Clipping extends BaseController
 
         ]);
 
-        session()->setFlashdata('pesan', 'e-Clipping berhasil di Unggah. Tunggu kabar dari verifikator ye bro');
+        session()->setFlashdata('pesan', 'e-Clipping berhasil di Unggah!');
 
         return redirect()->to('/clipping/index');
     }
@@ -82,6 +82,7 @@ class Clipping extends BaseController
         $clipping = $this->clippingModel->find($id);
         unlink('pdf/' . $clipping['file']);
         $this->clippingModel->delete($id);
+        session()->setFlashdata('pesan', 'Clipping berhasil di Hapus!');
         return redirect()->to('/clipping/index');
     }
 }

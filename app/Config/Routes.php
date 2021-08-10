@@ -47,6 +47,7 @@ $routes->delete('/admin/(:num)', 'Admin::hapus/$1', ['filter' => 'role:superadmi
 
 
 
+
 // $routes->get('/clipping/(:any)', 'Clipping::detail/$1');
 
 /*

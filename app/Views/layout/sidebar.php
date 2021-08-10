@@ -59,6 +59,13 @@
              </a>
          </div>
      </li> -->
+     <hr class="sidebar-divider my">
+
+     <li class="nav-item">
+         <a class="nav-link" href="<?= base_url('logout'); ?>">
+             <i class="fas fa-sign-out-alt"></i>
+             <span>Logout</span></a>
+     </li>
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 

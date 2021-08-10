@@ -19,7 +19,7 @@ class Admin extends BaseController
     public function index()
     {
         $data['title'] = 'Daftar Administrator';
-        $this->builder->select('users.id as userid, username, email, name');
+        $this->builder->select('users.id as userid, username, email, fullname, name');
         $this->builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
         $this->builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
         $query = $this->builder->get();
@@ -33,6 +33,7 @@ class Admin extends BaseController
     {
         $user = $this->adminModel->find($userid);
         $this->adminModel->delete($userid);
+        session()->setFlashdata('pesan', 'Profil berhasil di Hapus!');
         return redirect()->to('admin/index');
     }
 }

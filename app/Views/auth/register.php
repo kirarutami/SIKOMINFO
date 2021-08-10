@@ -20,7 +20,7 @@
                     <span class="focus-input100" data-placeholder="<?= lang('Auth.username') ?>"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input">
+                <div for="fullname" class="wrap-input100 validate-input">
                     <input class="input100 " type="text" name="fullname" id="fullname">
                     <span class="focus-input100" data-placeholder="Full Name"></span>
                 </div>
